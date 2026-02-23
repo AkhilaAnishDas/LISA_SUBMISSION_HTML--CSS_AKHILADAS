@@ -112,10 +112,11 @@ This project helps in understanding:
 
 ## 👩‍💻 Author
 
-Created By Akhila Das as a beginner web development project.
+Created By Akhila Anish Das
 
 ---
 
 ## 📜 License
 
 This project is free to use for educational and learning purposes.
+
