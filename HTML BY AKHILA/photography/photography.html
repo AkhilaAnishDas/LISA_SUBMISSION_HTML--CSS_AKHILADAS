@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+
+<title>Luxury Photography</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Playfair+Display:wght@500;700&display=swap" rel="stylesheet">
+
+<style>
+
+/* ---------- GLOBAL ---------- */
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Poppins;
+}
+
+body{
+
+background:#060606;
+color:white;
+
+}
+
+/* ---------- NAVBAR ---------- */
+
+nav{
+
+position:absolute;
+top:0;
+
+width:100%;
+
+padding:20px 90px;
+
+display:flex;
+justify-content:space-between;
+
+align-items:center;
+
+z-index:10;
+
+}
+
+.logo{
+
+color:#e8c170;
+
+font-weight:600;
+
+font-size:22px;
+
+}
+
+nav ul{
+
+display:flex;
+gap:40px;
+
+list-style:none;
+
+}
+
+nav a{
+
+color:white;
+
+text-decoration:none;
+
+opacity:.8;
+
+}
+
+nav a:hover{
+
+color:#e8c170;
+
+}
+
+
+/* ---------- HERO ---------- */
+
+.hero{
+
+height:100vh;
+
+background:
+
+linear-gradient(rgba(0,0,0,.6),rgba(0,0,0,.8)),
+
+url("https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?q=80&w=2070&auto=format&fit=crop")
+
+center/cover;
+
+display:flex;
+align-items:center;
+justify-content:center;
+
+text-align:center;
+
+}
+
+.hero h1{
+
+font-size:65px;
+
+letter-spacing:3px;
+
+font-family:Playfair Display;
+
+}
+
+.hero span{
+
+color:#e8c170;
+
+font-style:italic;
+
+}
+
+.btn{
+
+margin-top:25px;
+
+display:inline-block;
+
+padding:14px 30px;
+
+background:#e8c170;
+
+color:black;
+
+font-weight:600;
+
+border:none;
+
+}
+
+
+/* ---------- ABOUT ---------- */
+
+.section{
+
+padding:90px 10%;
+
+}
+
+.about{
+
+display:flex;
+
+align-items:center;
+
+gap:60px;
+
+}
+
+.about img{
+
+width:360px;
+
+border:6px solid #111;
+
+}
+
+.about h2{
+
+color:#e8c170;
+
+font-family:Playfair Display;
+
+margin-bottom:10px;
+
+}
+
+
+/* ---------- SERVICES ---------- */
+
+.services h2{
+
+text-align:center;
+
+font-family:Playfair Display;
+
+color:#e8c170;
+
+margin-bottom:40px;
+
+}
+
+.gallery{
+
+display:grid;
+
+grid-template-columns:
+repeat(auto-fit,minmax(230px,1fr));
+
+gap:20px;
+
+}
+
+.card{
+
+position:relative;
+
+overflow:hidden;
+
+}
+
+.card img{
+
+width:100%;
+
+height:230px;
+
+object-fit:cover;
+
+transition:.5s;
+
+}
+
+.card:hover img{
+
+transform:scale(1.1);
+
+}
+
+.label{
+
+position:absolute;
+
+bottom:10px;
+
+left:10px;
+
+background:rgba(0,0,0,.7);
+
+padding:6px 14px;
+
+}
+
+
+/* ---------- CONTACT ---------- */
+
+.contact{
+
+display:flex;
+
+gap:40px;
+
+align-items:center;
+
+}
+
+input,textarea{
+
+width:100%;
+
+margin-bottom:14px;
+
+padding:12px;
+
+background:#111;
+
+border:1px solid #333;
+
+color:white;
+
+}
+
+textarea{
+
+height:130px;
+
+resize:none;
+
+}
+
+/* ---------- FOOTER ---------- */
+
+footer{
+
+background:black;
+
+text-align:center;
+
+padding:20px;
+
+opacity:.7;
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+
+<!-- NAVBAR -->
+
+<nav>
+
+<div class="logo">📸 Photography</div>
+
+<ul>
+
+<li><a>Home</a></li>
+<li><a>About</a></li>
+<li><a>Portfolio</a></li>
+<li><a>Services</a></li>
+<li><a>Contact</a></li>
+
+</ul>
+
+</nav>
+
+
+
+<!-- HERO -->
+
+<section class="hero">
+
+<div>
+
+<h1>
+
+<span>Capturing</span><br>
+
+MOMENTS THAT LAST FOREVER
+
+</h1>
+
+<button class="btn">
+
+View Portfolio →
+
+</button>
+
+</div>
+
+</section>
+
+
+
+<!-- ABOUT -->
+
+<section class="section about">
+
+<img src="https://images.unsplash.com/photo-1516035069371-29a1b244cc32">
+
+<div>
+
+<h2>About Me</h2>
+
+<p>
+
+Hi, I'm Your Akhila — a passionate photographer capturing life's beautiful moments.
+
+I create timeless memories through artistic storytelling.
+
+</p>
+
+<br>
+
+<button class="btn">
+
+Read More →
+
+</button>
+
+</div>
+
+</section>
+
+
+
+<!-- SERVICES -->
+
+<section class="section services">
+
+<h2>My Services</h2>
+
+<div class="gallery">
+
+<div class="card">
+
+<img src="https://images.unsplash.com/photo-1492562080023-ab3db95bfbce">
+
+<div class="label">
+
+Portrait
+
+</div>
+
+</div>
+
+<div class="card">
+
+<img src="https://images.unsplash.com/photo-1519741497674-611481863552">
+
+<div class="label">
+
+Wedding
+
+</div>
+
+</div>
+
+<div class="card">
+
+<img src="https://images.unsplash.com/photo-1501785888041-af3ef285b470">
+
+<div class="label">
+
+Landscape
+
+</div>
+
+</div>
+
+<div class="card">
+
+<img src="https://images.unsplash.com/photo-1500534623283-312aade485b7">
+
+<div class="label">
+
+Event
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+
+<!-- CONTACT -->
+
+<section class="section contact">
+
+<div style="flex:1">
+
+<input placeholder="Name">
+
+<input placeholder="Email">
+
+<textarea placeholder="Message"></textarea>
+
+<button class="btn">
+
+Send Message →
+
+</button>
+
+</div>
+
+<img width="360"
+
+src="https://images.unsplash.com/photo-1516035069371-29a1b244cc32">
+
+</section>
+
+
+
+<footer>
+
+© 2026 Your Photography. All Rights Reserved.
+
+</footer>
+
+
+</body>
+
+</html>

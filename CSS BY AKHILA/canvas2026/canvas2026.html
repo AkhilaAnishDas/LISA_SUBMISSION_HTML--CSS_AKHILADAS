@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>2026 Indian Canvas</title>
+
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Poppins:wght@300;400&family=Cinzel:wght@600&display=swap" rel="stylesheet">
+
+<style>
+  body {
+    margin: 0;
+    height: 100vh;
+    background: linear-gradient(135deg, #ffcc70, #ff8c42);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Poppins', sans-serif;
+  }
+
+  canvas {
+    background: radial-gradient(circle at top, #fff1c1, #ffb347);
+    box-shadow: 0 20px 40px rgba(180, 90, 0, 0.45);
+    border-radius: 22px;
+  }
+</style>
+</head>
+
+<body>
+
+<canvas id="canvas" width="600" height="350"></canvas>
+
+<script>
+  const canvas = document.getElementById("canvas");
+  const ctx = canvas.getContext("2d");
+
+  let textY = 180;
+  let direction = 1;
+
+  // Floating diya-like lights
+  const lights = Array.from({ length: 14 }, () => ({
+    x: Math.random() * canvas.width,
+    y: canvas.height + Math.random() * 200,
+    radius: Math.random() * 6 + 4,
+    speed: Math.random() * 3 + 2
+  }));
+
+  function drawBackground() {
+    const gradient = ctx.createLinearGradient(0, 0, canvas.width, canvas.height);
+    gradient.addColorStop(0, "#ffd77a");
+    gradient.addColorStop(1, "#ff944d");
+
+    ctx.fillStyle = gradient;
+    ctx.fillRect(0, 0, canvas.width, canvas.height);
+  }
+
+  function drawText() {
+    ctx.textAlign = "center";
+    ctx.shadowColor = "rgba(160, 80, 0, 0.6)";
+    ctx.shadowBlur = 16;
+
+    // Main heading
+    ctx.font = "600 36px 'Cinzel'";
+    ctx.fillStyle = "#7a1c00";
+    ctx.fillText("नए साल की हार्दिक शुभकामनाएँ", canvas.width / 2, textY);
+
+    // Sub text
+    ctx.font = "300 18px 'Poppins'";
+    ctx.fillStyle = "#5a1a00";
+    ctx.fillText("यह वर्ष आपके लिए सुख, समृद्धि और अच्छी सेहत लेकर आए 🇮🇳", canvas.width / 2, textY + 44);
+
+    ctx.shadowBlur = 0;
+  }
+
+  function drawLights() {
+    lights.forEach(light => {
+      ctx.beginPath();
+      ctx.arc(light.x, light.y, light.radius, 0, Math.PI * 2);
+
+      const glow = ctx.createRadialGradient(
+        light.x, light.y, 1,
+        light.x, light.y, light.radius * 2
+      );
+      glow.addColorStop(0, "rgba(255, 200, 120, 0.9)");
+      glow.addColorStop(1, "rgba(255, 200, 120, 0)");
+
+      ctx.fillStyle = glow;
+      ctx.fill();
+
+      light.y -= light.speed;
+
+      if (light.y < -10) {
+        light.y = canvas.height + 20;
+        light.x = Math.random() * canvas.width;
+      }
+    });
+  }
+
+  function animate() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+    drawBackground();
+    drawLights();
+    drawText();
+
+    textY += 0.3 * direction;
+    if (textY > 185 || textY < 170) direction *= -1;
+
+    requestAnimationFrame(animate);
+  }
+
+  animate();
+</script>
+
+</body>
+</html>

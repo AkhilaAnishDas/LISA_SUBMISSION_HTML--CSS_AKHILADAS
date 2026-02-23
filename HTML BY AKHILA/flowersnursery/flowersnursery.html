@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Flower Nursery</title>
+
+<style>
+
+body{
+
+font-family:Arial;
+
+margin:0;
+
+background:linear-gradient(#fff7fb,#e8fff0);
+
+text-align:center;
+
+}
+
+/* title */
+
+h1{
+
+color:#2e7d32;
+
+margin-top:20px;
+
+}
+
+/* grid */
+
+.container{
+
+display:grid;
+
+grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+
+gap:25px;
+
+padding:40px;
+
+}
+
+/* flower card */
+
+.flower{
+
+background:white;
+
+padding:15px;
+
+border-radius:12px;
+
+box-shadow:0 5px 12px rgba(0,0,0,.2);
+
+cursor:pointer;
+
+transition:.3s;
+
+}
+
+.flower:hover{
+
+transform:scale(1.05);
+
+}
+
+.flower img{
+
+width:200px;
+
+height:200px;
+
+object-fit:cover;
+
+border-radius:50%;
+
+}
+
+/* popup */
+
+#popup{
+
+position:fixed;
+
+top:50%;
+
+left:50%;
+
+transform:translate(-50%,-50%);
+
+background:white;
+
+width:380px;
+
+padding:25px;
+
+border-radius:12px;
+
+box-shadow:0 12px 30px rgba(0,0,0,.4);
+
+display:none;
+
+}
+
+button{
+
+background:#2e7d32;
+
+color:white;
+
+border:none;
+
+padding:8px 14px;
+
+border-radius:6px;
+
+margin-top:12px;
+
+cursor:pointer;
+
+}
+
+/* FOOTER */
+
+.footer{
+
+background:#e8fff0;
+
+color:#2e7d32;
+
+text-align:center;
+
+padding:20px;
+
+margin-top:40px;
+
+font-size:16px;
+
+border-top:3px solid #81c784;
+
+line-height:1.7;
+
+width:100%;
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<h1>🌼 Flower Nursery By Akhila 🌼</h1>
+
+<p>Click any flower to know more!</p>
+
+
+<div class="container" id="flowers"></div>
+
+
+
+<!-- popup -->
+
+<div id="popup">
+
+<h2 id="name"></h2>
+
+<p id="info"></p>
+
+<button onclick="closePopup()">Close</button>
+
+</div>
+
+
+
+<script>
+
+
+const flowers=[
+
+{
+
+name:"Rose",
+
+img:"../IMAGES/rose.png",
+
+info:"Roses symbolize love and beauty. They grow best in sunny areas with well-drained soil. Regular pruning helps better blooming. Roses are widely used in perfumes, decorations, and medicines."
+
+},
+
+{
+
+name:"Marigold",
+
+img:"../IMAGES/marigold.png",
+
+info:"Marigolds are bright orange or yellow flowers commonly used during festivals and decorations. They repel insects naturally and grow easily in warm climates."
+
+},
+
+{
+
+name:"Lotus",
+
+img:"../IMAGES/lotus.png",
+
+info:"Lotus grows in water and symbolizes purity and spirituality. It is India's national flower and is important in cultural traditions."
+
+},
+
+{
+
+name:"Sunflower",
+
+img:"../IMAGES/sunflower.png",
+
+info:"Sunflowers follow sunlight during the day. They produce edible seeds and oil. These flowers grow tall and need full sunlight."
+
+},
+
+{
+
+name:"Jasmine",
+
+img:"../IMAGES/jasmine.png",
+
+info:"Jasmine flowers are known for their strong fragrance. Used in perfumes and tea, they bloom mostly at night and require warm temperatures."
+
+},
+
+{
+
+name:"Lily",
+
+img:"../IMAGES/lily.png",
+
+info:"Lilies symbolize purity and devotion. They grow from bulbs and require moderate watering and sunlight."
+
+},
+
+{
+
+name:"Tulip",
+
+img:"../IMAGES/tulip.png",
+
+info:"Tulips bloom in spring and represent elegance and happiness. They prefer cool weather and well-drained soil."
+
+},
+
+{
+
+name:"Hibiscus",
+
+img:"../IMAGES/hibiscus.png",
+
+info:"Hibiscus flowers are large tropical blooms often used for herbal tea and hair care products. They require warm weather."
+
+},
+
+{
+
+name:"Orchid",
+
+img:"../IMAGES/orchid.png",
+
+info:"Orchids are exotic flowers symbolizing luxury and beauty. They grow well indoors with indirect sunlight."
+
+},
+
+{
+
+name:"Daisy",
+
+img:"../IMAGES/daisy.png",
+
+info:"Daisies represent innocence and joy. They are easy to grow and bloom in sunny gardens."
+
+},
+
+{
+
+name:"Lavender",
+
+img:"../IMAGES/lavender.png",
+
+info:"Lavender is a fragrant purple flower used in aromatherapy oils. It helps relaxation and grows best in dry sunny areas."
+
+},
+
+{
+
+name:"Dandelion",
+
+img:"../IMAGES/dandelions.png",
+
+info:"Dandelion is a bright yellow wildflower known for its fluffy white seed head. It symbolizes hope and resilience. The plant grows easily in sunny areas and is widely used in herbal medicine, teas, and salads."
+
+}
+
+];
+
+
+/* create cards */
+
+const container=document.getElementById("flowers");
+
+
+flowers.forEach(f=>{
+
+let card=document.createElement("div");
+
+card.className="flower";
+
+card.innerHTML=`
+
+<img src="${f.img}">
+
+<h3>${f.name}</h3>
+
+`;
+
+card.onclick=()=>showInfo(f);
+
+container.appendChild(card);
+
+});
+
+
+function showInfo(f){
+
+document.getElementById("name").innerText=f.name;
+
+document.getElementById("info").innerText=f.info;
+
+document.getElementById("popup").style.display="block";
+
+}
+
+
+function closePopup(){
+
+document.getElementById("popup").style.display="none";
+
+}
+
+</script>
+
+<section>
+    
+<footer class="footer">
+    © 2026 Akhila's Flower Nursery. To know more about flowers 
+    <br> 
+    LIKE 👍🏻 SHARE ↗️  & SUBSCRIBE 🔔 MY CHANNEL Akhila's Bouquet and Petals 😉
+    <BR>
+    
+</footer>
+
+</section>
+
+</body>
+</html>
